@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山行レポート・活動記録｜トレランクラブ【走ったれ】</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        display: ['"Barlow Condensed"', '"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        forest: { 950: '#070E0B', 900: '#0B1611', 800: '#12241C' },
+                        trail: { orange: '#FF5500', lime: '#CCFF00' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #070E0B; color: #F3F4F6; }
+        .glass-panel {
+            background: rgba(18, 36, 28, 0.72);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <!-- 共通ヘッダー -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-trail-orange to-amber-500 flex items-center justify-center text-white font-display font-extrabold text-lg">走</div>
+                <div>
+                    <span class="block font-black text-white text-sm sm:text-base leading-none">トレランクラブ【走ったれ】</span>
+                    <span class="block font-display text-[10px] tracking-widest text-trail-lime uppercase mt-0.5">SHINSHU / NAGANO</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-sm font-bold">
+                <a href="./index.html" class="text-gray-300 hover:text-white transition">トップページ</a>
+                <a href="./members.html" class="text-gray-300 hover:text-white transition">メンバー紹介</a>
+                <a href="./reports.html" class="text-trail-lime border-b-2 border-trail-lime pb-0.5">山行レポート</a>
+                <a href="./index.html#contact" class="px-4 py-2 rounded-full bg-trail-orange hover:bg-orange-600 text-white transition">体験参加・連絡</a>
+            </nav>
+
+            <a href="./index.html" class="md:hidden text-xs font-bold px-3 py-1.5 rounded-full bg-white/10 text-white flex items-center gap-1">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> TOPへ
+            </a>
+        </div>
+    </header>
+
+    <section class="py-16 border-b border-white/10 bg-gradient-to-b from-forest-900 to-forest-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-trail-orange/15 border border-trail-orange/30 text-trail-orange text-xs font-bold mb-4">
+                <i data-lucide="compass" class="w-3.5 h-3.5"></i> TRAIL LOG & REPORTS
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black text-white mb-4">活動レポート・山行ログ</h1>
+            <p class="text-gray-400 max-w-2xl text-sm sm:text-base">
+                これまでの練習会や山岳トレイルの記録です。コースの雰囲気や距離・獲得標高、下山後のグルメ情報など、初参加の参考にしてください！
+            </p>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- レポート記事 1 -->
+            <article class="glass-panel rounded-3xl overflow-hidden border border-white/10 flex flex-col">
+                <div class="relative h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="戸隠・飯縄エリアトレイル" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-forest-950/80 backdrop-blur text-trail-lime text-xs font-bold">2026.11.08 開催</span>
+                </div>
+                <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-black text-white mb-3">晩秋の飯縄山〜戸隠古道トレイルラン＆新そば堪能ツアー</h2>
+                        <div class="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-forest-950/80 border border-white/5 mb-4 text-center">
+                            <div>
+                                <span class="block text-[10px] text-gray-400">DISTANCE</span>
+                                <span class="font-display font-extrabold text-lg text-white">16.5 km</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-400">ELEVATION</span>
+                                <span class="font-display font-extrabold text-lg text-trail-lime">+980 m</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-400">MEMBERS</span>
+                                <span class="font-display font-extrabold text-lg text-trail-orange">8 名</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            初参加メンバー2名を迎えて、ふかふかの落ち葉トレイルを満喫！山頂からは北アルプスの冠雪がくっきり見えました。下山後は戸隠で打ちたての新そばを堪能。
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+                        <span>レベル：中級（ゆっくりペース）</span>
+                        <span class="text-trail-orange font-bold">グルメ：戸隠新そば</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- レポート記事 2 -->
+            <article class="glass-panel rounded-3xl overflow-hidden border border-white/10 flex flex-col">
+                <div class="relative h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1000&q=80" alt="犀川河川敷朝ラン" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-forest-950/80 backdrop-blur text-trail-lime text-xs font-bold">2026.11.15 開催</span>
+                </div>
+                <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-black text-white mb-3">週末朝6時・犀川河川敷モーニンググラベルラン</h2>
+                        <div class="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-forest-950/80 border border-white/5 mb-4 text-center">
+                            <div>
+                                <span class="block text-[10px] text-gray-400">DISTANCE</span>
+                                <span class="font-display font-extrabold text-lg text-white">10.0 km</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-400">ELEVATION</span>
+                                <span class="font-display font-extrabold text-lg text-trail-lime">+65 m</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-400">MEMBERS</span>
+                                <span class="font-display font-extrabold text-lg text-trail-orange">11 名</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            朝霧の犀川沿いをキロ6分〜6分半の会話できるペースで楽しくランニング。走った後は近くのベーカリーで焼きたてパンとコーヒーで朝活解散しました！
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+                        <span>レベル：初級（初心者歓迎）</span>
+                        <span class="text-trail-orange font-bold">グルメ：朝焼きパン＆珈琲</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
