@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メンバー紹介｜トレランクラブ【走ったれ】SHINSHU / NAGANO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        display: ['"Barlow Condensed"', '"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        forest: { 950: '#070E0B', 900: '#0B1611', 800: '#12241C', 700: '#1B362A' },
+                        trail: { orange: '#FF5500', lime: '#CCFF00' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #070E0B; color: #F3F4F6; }
+        .glass-panel {
+            background: rgba(18, 36, 28, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-trail-orange selection:text-white pb-20">
+
+    <!-- 共通ヘッダー -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-trail-orange to-amber-500 flex items-center justify-center text-white font-display font-extrabold text-lg">
+                    走
+                </div>
+                <div>
+                    <span class="block font-black text-white text-sm sm:text-base leading-none">トレランクラブ【走ったれ】</span>
+                    <span class="block font-display text-[10px] tracking-widest text-trail-lime uppercase mt-0.5">SHINSHU / NAGANO</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-sm font-bold">
+                <a href="./index.html" class="text-gray-300 hover:text-white transition">トップページ</a>
+                <a href="./members.html" class="text-trail-lime border-b-2 border-trail-lime pb-0.5">メンバー紹介</a>
+                <a href="./reports.html" class="text-gray-300 hover:text-white transition">山行レポート</a>
+                <a href="./index.html#contact" class="px-4 py-2 rounded-full bg-trail-orange hover:bg-orange-600 text-white transition">
+                    体験参加・連絡
+                </a>
+            </nav>
+
+            <a href="./index.html" class="md:hidden text-xs font-bold px-3 py-1.5 rounded-full bg-white/10 text-white flex items-center gap-1">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> TOPへ
+            </a>
+        </div>
+    </header>
+
+    <!-- ページヒーロー -->
+    <section class="relative py-16 sm:py-20 border-b border-white/10 bg-gradient-to-b from-forest-900 to-forest-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-trail-lime/10 border border-trail-lime/30 text-trail-lime text-xs font-bold mb-4">
+                <i data-lucide="users" class="w-3.5 h-3.5"></i> CLUB MEMBERS DIRECTORY
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+                信州の山を駆ける、<br class="sm:hidden">個性豊かな仲間たち
+            </h1>
+            <p class="text-gray-400 max-w-2xl text-sm sm:text-base leading-relaxed">
+                週末朝の犀川ランから北アルプス縦走、下山後のトレイルグルメ巡りまで。初心者からベテランまで、それぞれのスタイルで信州のトレイルを楽しんでいます！
+            </p>
+        </div>
+    </section>
+
+    <!-- 検索＆フィルターコントロール -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <!-- スタイルフィルター -->
+            <div class="flex flex-wrap gap-2" id="styleFilters">
+                <button onclick="filterMembers('all')" data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-trail-lime text-forest-950 transition">
+                    すべて表示
+                </button>
+                <button onclick="filterMembers('pacer')" data-filter="pacer" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white/5 text-gray-300 hover:bg-white/10 transition">
+                    運営・ペーサー
+                </button>
+                <button onclick="filterMembers('mountain')" data-filter="mountain" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white/5 text-gray-300 hover:bg-white/10 transition">
+                    山岳・ロング派
+                </button>
+                <button onclick="filterMembers('gourmet')" data-filter="gourmet" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white/5 text-gray-300 hover:bg-white/10 transition">
+                    絶景・グルメ派
+                </button>
+            </div>
+
+            <!-- キーワード検索 -->
+            <div class="relative w-full md:w-72">
+                <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input type="text" id="memberSearchInput" oninput="renderMemberGrid()" placeholder="好きな山・グルメ・名前で検索..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-forest-900 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-trail-lime">
+            </div>
+        </div>
+
+        <!-- メンバー一覧グリッド -->
+        <div id="membersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <!-- メンバー追加コード生成パネル（管理者向け便利ツール） -->
+        <div class="mt-16 glass-panel rounded-3xl p-6 sm:p-8 border border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-bold text-trail-orange tracking-wider uppercase">ADMIN HELPER</span>
+                    <h2 class="text-xl font-black text-white mt-1">新しいメンバーを追加する（コード生成ツール）</h2>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">
+                        フォームに入力すると、GitHubの <code class="text-trail-lime bg-black/40 px-1.5 py-0.5 rounded">members-data.js</code> に貼り付けるだけで使えるコードが自動生成されます。
+                    </p>
+                </div>
+                <button onclick="toggleGenerator()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-sm font-bold flex items-center gap-2 self-start">
+                    <i data-lucide="user-plus" class="w-4 h-4 text-trail-lime"></i> 追加フォームを開く
+                </button>
+            </div>
+
+            <div id="generatorBody" class="hidden mt-6 pt-6 border-t border-white/10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                    <input type="text" id="newName" placeholder="名前（例：タカシ）" class="px-3.5 py-2.5 rounded-xl bg-forest-950 border border-white/10 text-sm text-white">
+                    <input type="text" id="newRole" placeholder="役割（例：朝ランメンバー）" class="px-3.5 py-2.5 rounded-xl bg-forest-950 border border-white/10 text-sm text-white">
+                    <select id="newStyle" class="px-3.5 py-2.5 rounded-xl bg-forest-950 border border-white/10 text-sm text-white">
+                        <option value="pacer">運営・ペーサー</option>
+                        <option value="mountain">山岳・ロング派</option>
+                        <option value="gourmet">絶景・グルメ派</option>
+                    </select>
+                    <input type="text" id="newExp" placeholder="トレラン歴（例：トレラン歴 2年）" class="px-3.5 py-2.5 rounded-xl bg-forest-950 border border-white/10 text-sm text-white">
+                    <input type="text" id="newMountain" placeholder="好きな山・コース" class="px-3.5 py-2.5 rounded-xl bg-forest-950 border border-white/10 text-sm text-white">
+                    <input type="text" id="newGourmet" placeholder="下山後の推しグルメ" class="px-3.5 py-2.5 rounded-xl bg-forest-950 border border-white/10 text-sm text-white">
+                </div>
+                <textarea id="newBio" rows="2" placeholder="自己紹介メッセージ" class="w-full px-3.5 py-2.5 rounded-xl bg-forest-950 border border-white/10 text-sm text-white mb-4"></textarea>
+                
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="generateAndPreview()" class="px-5 py-2.5 rounded-xl bg-trail-orange hover:bg-orange-600 text-white text-sm font-bold transition">
+                        プレビュー追加 ＆ コード生成
+                    </button>
+                    <button onclick="copyGeneratedCode()" id="copyCodeBtn" class="hidden px-5 py-2.5 rounded-xl bg-trail-lime text-forest-950 text-sm font-bold transition flex items-center gap-1.5">
+                        <i data-lucide="copy" class="w-4 h-4"></i> members-data.js 用コードをコピー
+                    </button>
+                </div>
+                <pre id="generatedCodeBox" class="hidden mt-4 p-4 rounded-xl bg-black/60 border border-white/10 text-xs text-trail-lime overflow-x-auto"></pre>
+            </div>
+        </div>
+    </main>
+
+    <!-- 共通メンバーデータ読み込み -->
+    <script src="./members-data.js"></script>
+    <script>
+        let currentStyleFilter = 'all';
+        let membersList = typeof HASHITTARE_MEMBERS !== 'undefined' ? [...HASHITTARE_MEMBERS] : [];
+
+        function filterMembers(style) {
+            currentStyleFilter = style;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === style) {
+                    btn.className = 'filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-trail-lime text-forest-950 transition';
+                } else {
+                    btn.className = 'filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white/5 text-gray-300 hover:bg-white/10 transition';
+                }
+            });
+            renderMemberGrid();
+        }
+
+        function renderMemberGrid() {
+            const grid = document.getElementById('membersGrid');
+            const keyword = document.getElementById('memberSearchInput').value.trim().toLowerCase();
+
+            const filtered = membersList.filter(m => {
+                const matchStyle = currentStyleFilter === 'all' || m.styleTag === currentStyleFilter;
+                const searchTarget = `${m.name} ${m.role} ${m.favoriteMountain} ${m.trailGourmet} ${m.bio}`.toLowerCase();
+                const matchKeyword = !keyword || searchTarget.includes(keyword);
+                return matchStyle && matchKeyword;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">条件に一致するメンバーが見つかりませんでした。</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(m => `
+                <article class="glass-panel rounded-3xl p-6 flex flex-col justify-between hover:border-trail-lime/40 transition group">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-5">
+                            <div class="flex items-center gap-3.5">
+                                ${m.imageUrl
+                                    ? `<img src="${m.imageUrl}" alt="${m.name}" class="w-14 h-14 rounded-2xl object-cover border border-white/20">`
+                                    : `<div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${m.avatarColor || 'from-trail-orange to-amber-500'} flex items-center justify-center font-display font-extrabold text-xl text-white shadow-lg">${m.avatarInitials || m.name.slice(0,2)}</div>`
+                                }
+                                <div>
+                                    <span class="inline-block px-2 py-0.5 rounded bg-white/10 text-[10px] font-display font-bold tracking-wider text-trail-lime mb-1">${m.badge}</span>
+                                    <h3 class="text-xl font-black text-white">${m.name}</h3>
+                                    <p class="text-xs text-gray-400">${m.role}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-gray-300 leading-relaxed mb-5">${m.bio}</p>
+                    </div>
+
+                    <div class="space-y-2.5 pt-4 border-t border-white/10 text-xs">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="mountain" class="w-4 h-4 text-trail-lime shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="text-gray-400 block text-[11px]">好きな山・コース</span>
+                                <span class="text-white font-bold">${m.favoriteMountain}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="utensils" class="w-4 h-4 text-trail-orange shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="text-gray-400 block text-[11px]">下山後の推しグルメ</span>
+                                <span class="text-white font-bold">${m.trailGourmet}</span>
+                            </div>
+                        </div>
+                        ${m.experience ? `
+                        <div class="pt-1 flex items-center justify-between text-[11px] text-gray-400">
+                            <span>${m.experience}</span>
+                            <span>${m.gearPoint || ''}</span>
+                        </div>` : ''}
+                    </div>
+                </article>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function toggleGenerator() {
+            document.getElementById('generatorBody').classList.toggle('hidden');
+        }
+
+        function generateAndPreview() {
+            const name = document.getElementById('newName').value.trim() || 'ゲストランナー';
+            const role = document.getElementById('newRole').value.trim() || 'クラブメンバー';
+            const styleTag = document.getElementById('newStyle').value;
+            const experience = document.getElementById('newExp').value.trim() || 'トレラン歴 1年';
+            const favoriteMountain = document.getElementById('newMountain').value.trim() || '長野市周辺の里山';
+            const trailGourmet = document.getElementById('newGourmet').value.trim() || '信州そば・温泉';
+            const bio = document.getElementById('newBio').value.trim() || 'よろしくお願いします！一緒に信州の山を楽しみましょう！';
+
+            const newObj = {
+                id: 'member_' + Date.now(),
+                name,
+                role,
+                badge: 'MEMBER',
+                styleTag,
+                pickup: false,
+                experience,
+                favoriteMountain,
+                trailGourmet,
+                gearPoint: '',
+                bio,
+                avatarColor: 'from-trail-orange to-amber-500',
+                avatarInitials: name.slice(0, 2).toUpperCase(),
+                imageUrl: ''
+            };
+
+            membersList.push(newObj);
+            renderMemberGrid();
+
+            const codeString = `    {\n        id: '${newObj.id}',\n        name: '${newObj.name}',\n        role: '${newObj.role}',\n        badge: 'MEMBER',\n        styleTag: '${newObj.styleTag}',\n        pickup: false,\n        experience: '${newObj.experience}',\n        favoriteMountain: '${newObj.favoriteMountain}',\n        trailGourmet: '${newObj.trailGourmet}',\n        gearPoint: '',\n        bio: '${newObj.bio}',\n        avatarColor: 'from-trail-orange to-amber-500',\n        avatarInitials: '${newObj.avatarInitials}',\n        imageUrl: ''\n    },`;
+
+            const codeBox = document.getElementById('generatedCodeBox');
+            codeBox.textContent = codeString;
+            codeBox.classList.remove('hidden');
+            document.getElementById('copyCodeBtn').classList.remove('hidden');
+        }
+
+        function copyGeneratedCode() {
+            const text = document.getElementById('generatedCodeBox').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('members-data.js 用のコードをコピーしました！GitHubのファイルに貼り付けて保存してください。');
+            });
+        }
+
+        renderMemberGrid();
+    </script>
+</body>
+</html>
